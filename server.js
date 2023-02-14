@@ -10,13 +10,13 @@ app.get('/', function(request, response) {
   // var pId=request.params.id;
   var jsonObject={},result;
   var request = require('request');
-  request('https://api.homecraft.tv:8443/nazca/ophelia/get/metahome', function (error, res) {
+  request('https://api.homecraft.tv:8443/ophelia/ophelia/get/metahome', function (error, res) {
     if (!error && res.statusCode === 200) {
          jsonObject=JSON.parse( res.body);
        
      } 
      console.log(jsonObject,"qwerty");
-   const filePath = path.resolve(__dirname, "./nazca.in", "index.html");
+   const filePath = path.resolve(__dirname, "./ophelia-moon.com", "index.html");
    
    fs.readFile(filePath, "utf8", function (err, data) {
      if (err) {
@@ -40,12 +40,12 @@ app.get('/info/:name/:id', function(request, response) {
   var pId=request.params.id;
   var jsonObject={},result;
   var request = require('request');
-  request('https://api.homecraft.tv:8443/nazca/ophelia/products/product?pId='+pId, function (error, res) {
+  request('https://api.homecraft.tv:8443/ophelia/ophelia/products/product?pId='+pId, function (error, res) {
     if (!error && res.statusCode === 200) {
          jsonObject=JSON.parse( res.body);
        
      } 
-   const filePath = path.resolve(__dirname, "./nazca.in", "index.html");
+   const filePath = path.resolve(__dirname, "./ophelia-moon.com", "index.html");
    
    fs.readFile(filePath, "utf8", function (err, data) {
      if (err) {
@@ -65,7 +65,7 @@ app.get('/info/:name/:id', function(request, response) {
 
 app.get('/contact', function(request, response) {
   console.log('Contact page visited!');
-  const filePath = path.resolve(__dirname, './nazca.in', 'index.html')
+  const filePath = path.resolve(__dirname, './ophelia-moon.com', 'index.html')
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
       return console.log(err);
@@ -77,10 +77,10 @@ app.get('/contact', function(request, response) {
   });
 });
 
-app.use(express.static(path.resolve(__dirname, './nazca.in')));
+app.use(express.static(path.resolve(__dirname, './ophelia-moon.com')));
 
 app.get('*', function(request, response) {
-  const filePath = path.resolve(__dirname, './nazca.in', 'index.html');
+  const filePath = path.resolve(__dirname, './ophelia-moon.com', 'index.html');
   response.sendFile(filePath);
 });
 
